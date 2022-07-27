@@ -58,7 +58,6 @@ const Login = (props) => {
     return (
         <Layout
             className="site-layout-background login justify-content-center"
-            style={{minHeight: "100vh"}}
         >
             <div className="container">
                     <div className="row justify-content-center">
