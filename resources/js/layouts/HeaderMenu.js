@@ -12,11 +12,6 @@ const { Header } = Layout;
 const HeaderMenu = (props) => {
     const langs = [
         {
-            code: "ru",
-            name: "Русский",
-            countryCode: "ru",
-        },
-        {
             code: "gb",
             name: "English",
             countryCode: "gb",
@@ -45,19 +40,6 @@ const HeaderMenu = (props) => {
             ))}
         </Menu>
     );
-    const menu = (
-        <Menu>
-            <Menu.Item key="0">
-                <a href="https://www.antgroup.com">1st menu item</a>
-            </Menu.Item>
-            <Menu.Item key="1">
-                <a href="https://www.aliyun.com">2nd menu item</a>
-            </Menu.Item>
-            <Menu.Divider />
-            <Menu.Item key="3">3rd menu item</Menu.Item>
-        </Menu>
-    );
-
     const user_menu = (
         <Menu>
             <Menu.Item
@@ -71,20 +53,14 @@ const HeaderMenu = (props) => {
     );
 
     return (
-        <Header className="site-layout-background" style={{ padding: 0 }}>
+        <Header
+            style={{ padding: 0 }}>
             <div id="g-header" className="g-header-right float-right">
                 <ul className="nav">
                     <li className="nav-item">
                         <Dropdown overlay={langMenu} trigger={["click"]}>
                             <Button shape="circle">
                                 <RiGlobalLine size={16} />
-                            </Button>
-                        </Dropdown>
-                    </li>
-                    <li className="nav-item">
-                        <Dropdown overlay={menu} trigger={["click"]}>
-                            <Button shape="circle">
-                                <FiBell size={16} />
                             </Button>
                         </Dropdown>
                     </li>

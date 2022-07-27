@@ -61,7 +61,6 @@ const Sidebar = (props) => {
         >
             <div className="logo"/>
             <Menu
-                theme="light"
                 defaultSelectedKeys={["/" + path[1]]}
                 defaultOpenKeys={[path[1]]}
                 mode="inline"

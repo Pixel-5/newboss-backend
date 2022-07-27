@@ -6,6 +6,9 @@ import {Redirect, Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {DEV_MODE, APP_NAME} from "../global";
 
+import companyLogo from '../../../public/images/newboss.png';
+
+
 const Login = (props) => {
     const {t} = useTranslation();
     const {signin, isAuthenticated} = useContext(AuthContext);
@@ -17,8 +20,8 @@ const Login = (props) => {
         const data = await LoginRequest(values.email, values.password);
         if (data.data.success == 1 && data.data.permissions.length > 0) {
             signin(true, data.data.token);
-            await localStorage.setItem("user", JSON.stringify(data.data.data));
-            await localStorage.setItem(
+            localStorage.setItem("user", JSON.stringify(data.data.data));
+            localStorage.setItem(
                 "permission",
                 JSON.stringify(data.data.permissions)
             );
@@ -58,9 +61,13 @@ const Login = (props) => {
             style={{minHeight: "100vh"}}
         >
             <div className="container">
+                    <div className="row justify-content-center">
+                        <img src={companyLogo} alt="Newboss logo" height="200vh"/>
+                    </div>
                 <div className="row justify-content-center">
                     <div className="col-xl-5 col-lg-6 col-md-5">
-                        <Card className="shadow-lg my-5 border-0 overflow-hidden">
+                        <Card className="shadow-lg border-0 overflow-hidden">
+
                             <Form
                                 name="basic"
                                 initialValues={{

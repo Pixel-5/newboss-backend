@@ -32,7 +32,7 @@ class TransactionRepository extends CoreRepository implements Interfaces\Transac
             'type'  => $array['type'] ?? 'DEBIT',
             'amount' => $array['amount'],
             'note'  => $array['note'] ?? null,
-            'currency'  => $array['currency'] ?? 'usd',
+            'currency'  => $array['currency'] ?? 'bwp',
             'perform_time'  => $array['perform_time'] ?? now(),
             'refund_time'  => $array['refund_time'] ?? null,
             'status'  => $array['status'],

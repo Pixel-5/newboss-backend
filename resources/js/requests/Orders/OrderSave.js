@@ -20,7 +20,7 @@ const orderSave = async (params, state, id) => {
         type: params.delivery_type,
         payment_status: params.payment_status,
         comment: params.order_comment,
-        //payment_method: params.payment_method,
+        payment_method: params.payment_method,
         total_discount: state.total_discount,
         delivery_boy_comment: params.delivery_boy_comment,
         delivery_boy: params.delivery_boy,

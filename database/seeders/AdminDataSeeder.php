@@ -18,7 +18,7 @@ class AdminDataSeeder extends Seeder
         $data = [
             [
                 'id' => 1,
-                'name' => 'Admin55',
+                'name' => 'Admin',
                 'surname' => 'Admin',
                 'email' => 'admin@gmail.com',
                 'password' => Hash::make('admin1234'),

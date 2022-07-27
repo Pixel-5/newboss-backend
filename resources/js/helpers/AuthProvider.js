@@ -15,12 +15,12 @@ export const AuthProvider = ({ children }) => {
     async function signin(isAuthenticated, token) {
         if (isAuthenticated) {
             setToken(token);
-            await localStorage.setItem("jwt_token", token);
+            localStorage.setItem("jwt_token", token);
         } else {
             setToken(null);
-            await localStorage.removeItem("jwt_token");
-            await localStorage.removeItem("user");
-            await localStorage.removeItem("permission");
+            localStorage.removeItem("jwt_token");
+            localStorage.removeItem("user");
+            localStorage.removeItem("permission");
         }
     }
 

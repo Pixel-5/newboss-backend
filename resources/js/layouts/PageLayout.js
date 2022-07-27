@@ -15,7 +15,7 @@ const PageLayout = ({ children }) => {
                 <HeaderMenu />
                 <Content style={{ margin: "0 16px" }}>{children}</Content>
                 <ChatButton />
-                <Footer style={{ textAlign: "center" }}>{APP_NAME} 2021</Footer>
+                <Footer style={{ textAlign: "center" }}>{APP_NAME} 2022</Footer>
             </Layout>
         </Layout>
     );
