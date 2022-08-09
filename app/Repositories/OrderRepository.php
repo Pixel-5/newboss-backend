@@ -97,16 +97,13 @@ class OrderRepository extends CoreRepository implements OrderInterface
 
             if ($address) {
                 $id_address = $address->id;
-                $currency = Currency::find($collection['currency_id']);
-                $rate = $currency->rate;
-
                 $order = Model::create([
-                    'tax' => round($collection['tax'] / $rate, 2),
-                    "total_sum" => $summa ?? round($collection['total_amount'] / $rate, 2),
-                    "total_discount" => round($collection['total_discount'] /$rate, 2),
+                    'tax' => round($collection['tax'], 2),
+                    "total_sum" => $summa ?? round($collection['total_amount'], 2),
+                    "total_discount" => round($collection['total_discount'], 2),
                     'delivery_date' => $collection['delivery_date'],
                     'delivery_time_id' => $collection['delivery_time_id'],
-                    "delivery_fee" => round($collection['delivery_fee'] / $rate, 2),
+                    "delivery_fee" => round($collection['delivery_fee'], 2),
                     'active' => 1,
                     'type' => $collection['delivery_type'],
                     'comment' => $collection['comment'],
@@ -115,8 +112,6 @@ class OrderRepository extends CoreRepository implements OrderInterface
                     'id_shop' => $collection['shop'],
                     'id_delivery_address' => $id_address,
                     'coupon_amount' => $coupon_amount ?? 0,
-                    'currency_id' => $collection['currency_id'] ?? $currency->id,
-                    'currency_rate' => 1
                 ]);
 
 

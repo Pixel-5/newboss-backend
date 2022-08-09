@@ -331,20 +331,14 @@ class ShopRepository extends CoreRepository implements ShopInterface
             'uuid' => $uuid,
             'active' => 1,
         ];
-        $response = \Http::withHeaders(['Content-Type' => 'application/json'])->post('https://admin.sundaymart.net/api/v1/server/activation', $params);
-        $response = json_decode($response);
 
-        if ($response && $response->status) {
-            $result = ClientShop::updateOrCreate(['ip_address' => $server_ip], [
-                'name' => request()->root(),
-                'hash' => Hash::make($public_key),
-                'uuid' => $uuid,
-                'active' => 1,
-            ]);
-            return $this->successResponse("Key accepted", $result);
-        } else {
-            return $this->errorResponse("Wrong access key");
-        }
+        $result = ClientShop::updateOrCreate(['ip_address' => $server_ip], [
+            'name' => request()->root(),
+            'hash' => Hash::make($public_key),
+            'uuid' => $uuid,
+            'active' => 1,
+        ]);
+        return $this->successResponse("Key accepted", $result);
     }
 
     /**

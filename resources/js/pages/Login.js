@@ -56,9 +56,7 @@ const Login = (props) => {
     if (redirect) return <Redirect to={url}/>;
 
     return (
-        <Layout
-            className="site-layout-background login justify-content-center"
-        >
+        <Layout className="site-layout-background login justify-content-center">
             <div className="container">
                     <div className="row justify-content-center">
                         <img src={companyLogo} alt="Newboss logo" height="200vh"/>
