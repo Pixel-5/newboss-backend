@@ -1163,8 +1163,8 @@ class ShopAdd extends React.Component {
                                                         key: GOOGLE_MAP_API_KEY,
                                                     }}
                                                     defaultCenter={{
-                                                        lat: 59.95,
-                                                        lng: 30.33,
+                                                        lat: -24.618240474597,
+                                                        lng: 25.908017581112,
                                                     }}
                                                     defaultZoom={11}
                                                     onClick={this.onClickMap}
