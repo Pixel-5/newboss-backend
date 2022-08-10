@@ -46,6 +46,8 @@ export default ({
     }
     const handleChangeDeliveryData = (e) => {
         const newData = [...cart];
+        console.log(newData);
+        console.log(e);
         newData[bagIndex].deliveryDate = e;
         setCart(newData);
     };
