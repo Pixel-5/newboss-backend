@@ -32,7 +32,7 @@ const PosSystem = () => {
     const [userOpen, setUserOpen] = useState(false);
     const [productTotal, setProductTotal] = useState(0);
     const [search, setSearch] = useState("");
-    const [pageIndex, setPageIndex] = useState(1);
+    const [pageIndex, setPageIndex] = useState(0);
     const [pageSize, setPageSize] = useState(12);
     const [shop, setShop] = useState(undefined);
     const [category, setCategory] = useState(undefined);

@@ -254,8 +254,8 @@ class ProductRepository extends CoreRepository implements ProductInterface
             }
             );
         }
-
-        $datas = $datas->skip($collection['start'])
+        $datas = $datas
+            ->skip($collection['start'])
             ->take($collection['length'])
             ->orderBy("id", "desc")
             ->get();
