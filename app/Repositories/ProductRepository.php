@@ -151,7 +151,7 @@ class ProductRepository extends CoreRepository implements ProductInterface
             ->with([
                 "actualDiscount",
                 "comments" => function ($query) {
-                    $query->take(10)->skip(0);
+                    $query->take(10);
                     $query->orderBy("star");
                 },
                 "comments.user",

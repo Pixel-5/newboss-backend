@@ -272,7 +272,7 @@ class ShopRepository extends CoreRepository implements ShopInterface
             } else {
                 $params = $params + ['active' => false];
             }
-            \Http::withHeaders(['Content-Type' => 'application/json'])->post('https://admin.sundaymart.net/api/v1/server/notification', $params);
+            \Http::withHeaders(['Content-Type' => 'application/json'])->post('http://35.184.118.116/api/v1/server/notification', $params);
         }
         return response()->json(['status' => true, 'message' => 'Successfully send']);
     }

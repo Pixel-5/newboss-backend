@@ -160,10 +160,10 @@ class CategoryRepository extends CoreRepository implements CategoryInterface
             "active" => 1
         ]);
 
-        if ($collection['id_category'] == -1)
-            $categories = $categories->has("subcategories.products");
-        else
-            $categories = $categories->has("products");
+        // if ($collection['id_category'] == -1)
+        //     $categories = $categories->has("subcategories.products");
+        // else
+        //     $categories = $categories->has("products");
 
         $categories = $categories->with([
             "taxes",

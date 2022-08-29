@@ -22,7 +22,7 @@ class ProductObserver
     {
         $result = $this->csl();
         if (!$result) {
-            die(response()->json(['status' => false, 'license' => false, 'message' => 'Need activation key']));
+            // die(response()->json(['status' => false, 'license' => false, 'message' => 'Need activation key']));
         }
     }
 
