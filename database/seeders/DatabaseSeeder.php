@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PaymentMethodSeed::class);
         $this->call(PaymentSeed::class);
         $this->call(SocialSeeder::class);
+        $this->call(ProductMemorySeeder::class);
 
         // Tax::factory(25)->create();
 

@@ -25,6 +25,7 @@ import categoryActive from "../../../requests/Categories/CategoryActive";
 import brandActive from "../../../requests/Brands/BrandActive";
 import unitActive from "../../../requests/Units/UnitActive";
 import productSave from "../../../requests/Products/ProductSave";
+import productMemoryGet from "../../../requests/Products/ProductMemoryGet";
 import productGet from "../../../requests/Products/ProductGet";
 import ExtrasGroup from "../ExtrasGroups/ExtrasGroup";
 import ExtrasGroupAdd from "../ExtrasGroups/ExtrasGroupAdd";
@@ -51,6 +52,7 @@ class ProductAdd extends React.Component {
             previewTitle: "",
             fileList: [],
             shops: [],
+            memory: [],
             shop_id: -1,
             category_id: -1,
             categories: [],
@@ -103,6 +105,7 @@ class ProductAdd extends React.Component {
         this.getActiveLanguages();
         this.getActiveShops();
         this.getActiveUnits();
+        this.getProductsMemories()
     }
 
     getInfoById = async (id) => {
@@ -274,6 +277,15 @@ class ProductAdd extends React.Component {
         }
     };
 
+    getProductsMemories = async () => {
+        let data = await productMemoryGet();
+        if (data.data.success == 1 && data.data.data.length > 0) {
+            this.setState({
+                memory: data.data.data,
+            });
+        }
+    }
+
     changeStatus = (e) => {
         this.setState({
             active: e.target.checked,
@@ -306,17 +318,18 @@ class ProductAdd extends React.Component {
             message.warn("You cannot save in demo mode");
             return;
         }
+        console.log(this.state.product_memory);
+        // let data = await productSave(
+        //     values,
+        //     this.state.names,
+        //     this.state.descriptions,
+        //     this.state.fileList,
+        //     this.state.active,
+        //     this.state.id,
+        //     this.product_memory.id,
+        // );
 
-        let data = await productSave(
-            values,
-            this.state.names,
-            this.state.descriptions,
-            this.state.fileList,
-            this.state.active,
-            this.state.id
-        );
-
-        if (data.data.success == 1) window.history.back();
+        // if (data.data.success == 1) window.history.back();
     };
 
     onFinishFailed = (errorInfo) => {};
@@ -648,6 +661,47 @@ class ProductAdd extends React.Component {
                                                         )}
                                                     >
                                                         {this.state.categories.map(
+                                                            (item) => {
+                                                                return (
+                                                                    <Option
+                                                                        value={
+                                                                            item.id
+                                                                        }
+                                                                        key={
+                                                                            item.id
+                                                                        }
+                                                                    >
+                                                                        {
+                                                                            item.name
+                                                                        }
+                                                                    </Option>
+                                                                );
+                                                            }
+                                                        )}
+                                                    </Select>
+                                                </Form.Item>
+                                            </div>
+                                            <div className="col-md-6 col-sm-12">
+                                                <Form.Item
+                                                    label={t("Product memory")}
+                                                    name="product_memory"
+                                                    rules={[
+                                                        {
+                                                            required: false,
+                                                            message:
+                                                                t(
+                                                                    "product_memory"
+                                                                ),
+                                                        },
+                                                    ]}
+                                                    tooltip={"select_product_memory"}
+                                                >
+                                                    <Select
+                                                        placeholder={
+                                                            "select_product_memory"
+                                                        }
+                                                    >
+                                                        {this.state.memory.map(
                                                             (item) => {
                                                                 return (
                                                                     <Option

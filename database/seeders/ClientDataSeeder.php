@@ -19,11 +19,11 @@ class ClientDataSeeder extends Seeder
         $data = [
             [
                 'id' => 13,
-                'email' => 'client@gmail.com',
-                'phone' => '+998993148000',
+                'email' => 'mofenyimoffat@gmail.com',
+                'phone' => '+26772596057',
                 'password' => Hash::make('admin1234'),
-                "name" => "Frank",
-                "surname" => "Antonio",
+                "name" => "Moffat",
+                "surname" => "More",
                 "active" => 1,
                 "auth_type" => 1,
                 "token" => "werwerwerw",

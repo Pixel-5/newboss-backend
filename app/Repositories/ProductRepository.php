@@ -12,6 +12,7 @@ use App\Models\ProductsComment;
 use App\Models\ProductsImages;
 use App\Models\ProductsLanguage;
 use App\Models\ShopsCurriencies;
+use App\Models\ProductMemory;
 use App\Repositories\Interfaces\ProductInterface;
 use App\Traits\ApiResponse;
 use App\Traits\DatatableResponse;
@@ -113,6 +114,11 @@ class ProductRepository extends CoreRepository implements ProductInterface
             ->first();
 
         return $this->responseProductShow($product);
+    }
+
+    public function getProductsMemory(){
+        $data = ProductMemory::all();
+        return $this->successResponse("success", $data);
     }
 
     public function saveProductComment($collection = [])

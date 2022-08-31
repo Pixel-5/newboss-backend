@@ -38,6 +38,11 @@ class ProductController extends Controller
         return $this->productRepository->get($request->id);
     }
 
+    public function memory(Request $request)
+    {
+        return $this->productRepository->getProductsMemory();
+    }
+
     public function delete(Request $request)
     {
         return $this->productRepository->delete($request->id);

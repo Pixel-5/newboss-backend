@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const productSave = async (params, names, descriptions, images, active, id) => {
+const productSave = async (params, names, descriptions, images, active, id, product_memory_id) => {
     const token = localStorage.getItem('jwt_token');
     const url = "/api/auth/product/save";
     const body = {
@@ -17,7 +17,8 @@ const productSave = async (params, names, descriptions, images, active, id) => {
         feature_type: params['feature_type'],
         images: images,
         active: active,
-        id: id
+        id: id,
+        product_memory_id: product_memory_id
     };
 
     console.log(body);
@@ -26,13 +27,13 @@ const productSave = async (params, names, descriptions, images, active, id) => {
         "Authorization": "Bearer " + token
     }
 
-    const response = await axios({
-        method: 'post',
-        url: url,
-        data: body,
-        headers: headers
-    });
-    console.log(response);
+    // const response = await axios({
+    //     method: 'post',
+    //     url: url,
+    //     data: body,
+    //     headers: headers
+    // });
+    // console.log(response);
     return response;
 }
 

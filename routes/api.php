@@ -181,6 +181,7 @@ Route::group([
 
     //products
     Route::post('/product/get', [ProductController::class, 'get']);
+    Route::post('/product/memory/get', [ProductController::class, 'memory']);
     Route::post('/product/save', [ProductController::class, 'save']);
     Route::post('/product/active', [ProductController::class, 'active']);
     Route::post('/product/datatable', [ProductController::class, 'datatable']);
