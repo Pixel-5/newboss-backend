@@ -486,6 +486,7 @@ Route::group([
     // clients
     Route::post('/client/signup', [Mobile\ClientController::class, 'signup']);
     Route::post('/client/update', [Mobile\ClientController::class, 'update']);
+    Route::post('/client/delete', [Mobile\ClientController::class, 'delete']);
     Route::post('/client/reset', [Mobile\ClientController::class, 'reset']);
     Route::post('/client/login', [Mobile\ClientController::class, 'login']);
     Route::post('/client/save-push', [Mobile\ClientController::class, 'savePushToken']);

@@ -34,4 +34,10 @@ class ClientController extends Controller
     {
         return $this->clientRepository->resetPassword($request->all());
     }
+
+    public function delete(Request $request)
+    {
+        return $this->clientRepository->delete($request->id);
+    }
+
 }
